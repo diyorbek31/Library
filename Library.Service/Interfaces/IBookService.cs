@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Library.Service.Interfaces;
+using Library.Domain.Entities;
+using Library.Service.DTOs.Books;
 
-namespace Library.Service.Interfaces
+public interface IBookService
 {
-    internal class IBookService
-    {
-    }
+    public Task<bool> AddAsync(Book book);
+    public Task<bool> DeleteByIdAsync(int id);
+    public Task<BookForResultDto> GetByIdAsync(int id);
+    public Task<BookForResultDto> GetAllAsync();
+    public Task<BookForUpdateDto> UpdateAsync(Book book);
 }

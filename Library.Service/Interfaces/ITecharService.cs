@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Library.Domain.Entities;
+using Library.Service.DTOs.Teachers;
 
-namespace Library.Service.Interfaces
+namespace Library.Service.Interfaces;
+
+public interface ITecharService
 {
-    internal class ITecharService
-    {
-    }
+    public Task<bool> AddAsync(Teacher teacher);
+    public Task<bool> DeleteByIdAsync(int id);
+    public Task<TeacherForResultDto> GetByIdAsync(int id);
+    public Task<TeacherForResultDto> GetAllAsync();
+    public Task<TeacherForUpdateDto> UpdateAsync(Teacher teacher);
 }

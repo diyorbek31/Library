@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Library.Service.DTOs.Students;
 
-namespace Library.Service.DTOs.Students
+public class StudentForUpdateDto
 {
-    internal class StudentForUpdateDto
-    {
-    }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public int PhoneNumber { get; set; }
+    public bool MembershipStatus { get; set; }
 }

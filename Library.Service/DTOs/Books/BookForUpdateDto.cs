@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Library.Service.DTOs.Books;
 
-namespace Library.Service.DTOs.Books
+public class BookForUpdateDto
 {
-    internal class BookForUpdateDto
-    {
-    }
+    public string Title { get; set; }
+    public string Category { get; set; }
 }

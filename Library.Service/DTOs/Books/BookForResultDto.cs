@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+namespace Library.Service.DTOs.Books;
 
-namespace Library.Service.DTOs.Books
+public class BookForResultDto
 {
-    internal class BookForResultDto
-    {
-    }
+    public string Title { get; set; }
+    public string Category { get; set; }
+    public bool IsAvaiable { get; set; }
 }

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Library.Domain.Entities;
+using Library.Service.DTOs.Students;
 
-namespace Library.Service.Interfaces
+namespace Library.Service.Interfaces;
+
+public interface IStudentService
 {
-    internal class IStudentService
-    {
-    }
+    public Task<bool> AddAsync(Student student);
+    public Task<bool> DeleteByIdAsync(int id);
+    public Task<StudentForResultDto> GetByIdAsync(int id);
+    public Task<StudentForResultDto> GetAllAsync();
+    public Task<StudentForUpdateDto> UpdateAsync(Student student);
 }
