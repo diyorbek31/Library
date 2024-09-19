@@ -9,5 +9,6 @@ public interface IStudentService
     public Task<bool> DeleteByIdAsync(int id);
     public Task<StudentForResultDto> GetByIdAsync(int id);
     public Task<IEnumerable<StudentForResultDto>> GetAllAsync();
-    public Task<StudentForUpdateDto> UpdateAsync(Student student);
+    public Task<bool> UpdateAsync(int id ,StudentForUpdateDto student);
+    public Task<bool> BorrowBookAsync(int bookId);
 }

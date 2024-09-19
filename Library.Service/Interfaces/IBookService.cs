@@ -9,8 +9,8 @@ public interface IBookService
     public Task<BookForResultDto> GetByIdAsync(int id);
     public Task<IEnumerable<BookForResultDto>> GetAllAsync();
     public Task<IEnumerable<BookForUpdateDto>> UpdateAsync(int id, BookForUpdateDto book);
-    public Task<List<BookForSearchByTitleDto>> SearchByTitle(string title); 
-    public Task<List<BookForSearchByAuthorDto>> SearchByAuthor(string author);
-    public Task<bool> IsAvaible(int bookId);
-    public Task<bool> BorrowBook(int bookId);
+    public Task<List<BookForSearchByTitleDto>> SearchByTitleAsync(string title); 
+    public Task<List<BookForSearchByAuthorDto>> SearchByAuthorAsync(string author);
+    public Task<bool> IsAvaibleAsync(int bookId);
+    public Task<bool> BorrowBookAsync(int bookId);
 }
