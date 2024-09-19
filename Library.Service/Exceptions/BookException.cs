@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Library.Service.Exceptions;
 
-namespace Library.Service.Exceptions
+public class BookException : Exception
 {
-    internal class BookException
+    public int statusCode { get; set; }
+    public BookException(int statusCode,string message) : base(message)
     {
+        this.statusCode = statusCode;
     }
+
+    
 }
