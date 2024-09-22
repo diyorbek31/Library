@@ -71,7 +71,7 @@ public class BookService : IBookService
         return true;
     }
 
-    public async Task<List<BookForSearchByAuthorDto>> SearchByAuthorAsync(string author)
+    public async Task<IEnumerable<BookForSearchByAuthorDto>> SearchByAuthorAsync(string author)
     {
         var books = await this.bookRepository.RetrievAllAsync();
         if (!books.Any())
@@ -88,7 +88,7 @@ public class BookService : IBookService
         return mappedBooks;
     }
 
-    public async Task<List<BookForSearchByTitleDto>> SearchByTitleAsync(string title)
+    public async Task<IEnumerable<BookForSearchByTitleDto>> SearchByTitleAsync(string title)
     {
         var books = await this.bookRepository.RetrievAllAsync();
         if (!books.Any())
@@ -121,4 +121,6 @@ public class BookService : IBookService
         this.bookRepository.UpdateAsync(mappedBook);
         return true;
     }
+
+    
 }
