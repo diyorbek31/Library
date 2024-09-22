@@ -85,7 +85,7 @@ public class StudentService : IStudentService
             CreatedAt = studentUpdate.CreatedAt,
         };
         
-        this.studentRepository.UpdateAsync(mappedStudent);
+        this.studentRepository.UpdateAsync(mappedStudent); 
         return true;
         
     }

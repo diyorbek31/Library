@@ -9,5 +9,5 @@ public interface ITecharService
     public Task<bool> DeleteByIdAsync(int id);
     public Task<TeacherForResultDto> GetByIdAsync(int id);
     public Task<IEnumerable<TeacherForResultDto>> GetAllAsync();
-    public Task<TeacherForUpdateDto> UpdateAsync(Teacher teacher);
+    public Task<bool> UpdateAsync(int id,TeacherForUpdateDto teacher);
 }
