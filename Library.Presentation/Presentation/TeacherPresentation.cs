@@ -6,7 +6,7 @@ namespace Library.Presentation.Presentation;
 
 public class TeacherPresentation
 {
-    public async void Show()
+    public static async Task Show()
     {
         TeacherService teacherService = new TeacherService();
         bool check = true;
