@@ -15,8 +15,8 @@ public class StudentService : IStudentService
     {
         var students = await this.studentRepository.RetrievAllAsync();
         if (students.Any(s => s.Email.Equals(student.Email, StringComparison.OrdinalIgnoreCase)))
-            throw new LibraryException(404, "Users not found");
-        students.Add(student);
+            throw new LibraryException(404, "User already exists");
+        await this.studentRepository.InsertAsync(student);
         return true;
 
     }

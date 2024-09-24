@@ -1,14 +1,14 @@
-﻿namespace Library.Presentation.Presentation;
-
-using Library.Domain.Entities;
-using Library.Service.DTOs.Students;
+﻿using Library.Domain.Entities;
+using Library.Service.DTOs.Teachers;
 using Library.Service.Services;
 
-public class StudentPresentation
+namespace Library.Presentation.Presentations;
+
+public class TeacherPresentation
 {
     public static async Task Show()
     {
-        StudentService studentService = new StudentService();
+        TeacherService teacherService = new TeacherService();
         bool check = true;
         while (check)
         {
@@ -22,64 +22,56 @@ public class StudentPresentation
                 Console.WriteLine("6 -> Close");
 
                 int number = int.Parse(Console.ReadLine());
-                Student student = new Student();
+                Teacher teacher = new Teacher();
                 switch (number)
                 {
                     case 1:
                         Console.Clear();
                         Console.Write("Enter the User Firstname -> ");
-                        student.FirstName = Console.ReadLine();
+                        teacher.FirstName = Console.ReadLine();
 
                         Console.Write("Enter the User Lastname -> ");
-                        student.LastName = Console.ReadLine();
+                        teacher.LastName = Console.ReadLine();
 
                         Console.Write("Enter the User Email");
-                        student.Email = Console.ReadLine();
+                        teacher.Email = Console.ReadLine();
 
                         Console.Write("Enter the User PhoneNumber");
-                        student.PhoneNumber = int.Parse(Console.ReadLine());
-
-                        Console.Write("Enter the User Course");
-                        student.Course = int.Parse(Console.ReadLine());
-
-                        Console.WriteLine("Membership is Avaiable ?(1/0) -> ");
-                        student.MembershipStatus = bool.Parse(Console.ReadLine());
-
-                        studentService.AddAsync(student);
+                        teacher.PhoneNumber = Console.ReadLine();
+                        teacherService.AddAsync(teacher);
                         break;
                     case 2:
 
                         Console.Clear();
                         Console.Write("Enter the UserId -> ");
                         int userId = int.Parse(Console.ReadLine());
-                        StudentForUpdateDto studentUpd = new StudentForUpdateDto();
+                        TeacherForUpdateDto teacherUpd = new TeacherForUpdateDto();
 
                         Console.Write("Enter the User Firstname -> ");
-                        studentUpd.FirstName = Console.ReadLine();
+                        teacherUpd.FirstName = Console.ReadLine();
                         Console.Write("Enter the User Lastname -> ");
-                        studentUpd.LastName = Console.ReadLine();
+                        teacherUpd.LastName = Console.ReadLine();
                         Console.Write("Enter the User PhoneNumber");
-                        studentUpd.PhoneNumber = (Console.ReadLine());
-                        Console.WriteLine("Membership is Avaiable ?(1/0) -> ");
-                        studentUpd.MembershipStatus = bool.Parse(Console.ReadLine());
-
-                        studentService.UpdateAsync(userId, studentUpd);
+                        teacherUpd.PhoneNumber = Console.ReadLine();
+                        Console.WriteLine("Enter the User Email -> ");
+                        teacherUpd.Email = Console.ReadLine();                        
+                        teacherService.UpdateAsync(userId, teacherUpd);
                         break;
                     case 3:
                         Console.Clear();
                         Console.Write("Enter the UserId -> ");
-                        int studentId = int.Parse(Console.ReadLine());
-                        var studentInfo = await studentService.GetByIdAsync(studentId);
+                        int teacherId = int.Parse(Console.ReadLine());
+                        var teacherInfo = await teacherService.GetByIdAsync(teacherId);
 
-                        Console.WriteLine($"Firstname : {studentInfo.FirstName}, Lastname : {studentInfo.LastName}, Phonenumbers : {studentInfo.PhoneNumber}, MembershipStatus : {studentInfo.MembershipStatus}");
+                        Console.WriteLine($"Firstname : {teacherInfo.FirstName}, Lastname : {teacherInfo.LastName}, Phonenumbers : {teacherInfo.PhoneNumber}");
 
                         break;
                     case 4:
                         Console.Clear();
-                        var studentsInfo = await studentService.GetAllAsync();
-                        foreach(var pupil in studentsInfo)
+                        var teachersInfo = await teacherService.GetAllAsync();
+                        foreach (var tutor in teachersInfo)
                         {
-                            Console.WriteLine($"Firstname : {pupil.FirstName}, Lastname : {pupil.LastName}, Phonenumbers : {pupil.PhoneNumber}, MembershipStatus : {pupil.MembershipStatus}");
+                            Console.WriteLine($"Firstname : {tutor.FirstName}, Lastname : {tutor.LastName}, Phonenumbers : {tutor.PhoneNumber}");
 
                         }
                         break;
@@ -87,12 +79,12 @@ public class StudentPresentation
                     case 5:
                         Console.Clear();
                         Console.Write("Enter the UserId -> ");
-                        int pupilId = int.Parse(Console.ReadLine());
+                        int tutorId = int.Parse(Console.ReadLine());
 
-                        var deleteResponse = await studentService.DeleteByIdAsync(pupilId);
+                        var deleteResponse = await teacherService.DeleteByIdAsync(tutorId);
                         if (deleteResponse)
                             Console.WriteLine("Successfully deleted!");
-                        
+
                         break;
 
                     case 6:
@@ -104,11 +96,10 @@ public class StudentPresentation
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
         }
-
     }
 }

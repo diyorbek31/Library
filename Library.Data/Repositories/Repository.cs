@@ -50,8 +50,8 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : Auditabl
         entity.Id = await GenerateIdAsync();
         var entities = await this.RetrievAllAsync();
         entities.Add(entity);
-        var str = JsonConvert.SerializeObject(entities,Formatting.Indented);
-        await File.WriteAllTextAsync(path, str);
+        var str = JsonConvert.SerializeObject(entities, Formatting.Indented);
+        await File.WriteAllTextAsync(path,str);
         return true;
     }
 
@@ -84,7 +84,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : Auditabl
     }
     private async Task<int> GenerateIdAsync()
     {
-        var items = await RetrievAllAsync();
+        var items = await this.RetrievAllAsync();
         if (items.Count == 0)
             return 1;
         var lastId = items.Max(i => i.Id);

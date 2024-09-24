@@ -2,7 +2,7 @@
 
 public class Database
 {
-    public static readonly string STUDENT_PATH = "..//..//..//..//Library//Library.Data//Databases//Student.json";
-    public static readonly string TEACHER_PATH = "..//..//..//..//Library//Library.Data//Databases//Teacher.json";
-    public static readonly string BOOK_PATH = "..//..//..//..//Library//Library.Data//Databases//Book.json";
+    public const string STUDENT_PATH = "D:\\.NET lessons\\3-month\\LibraryManagementSystem\\Library\\Library.Data\\Databases\\Student.json";
+    public const string TEACHER_PATH = "D:\\.NET lessons\\3-month\\LibraryManagementSystem\\Library\\Library.Data\\Databases\\Teacher.json";
+    public const string BOOK_PATH = "D:\\.NET lessons\\3-month\\LibraryManagementSystem\\Library\\Library.Data\\Databases\\Book.json";
 }

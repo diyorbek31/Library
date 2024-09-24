@@ -15,7 +15,7 @@ public class BookService : IBookService
         var books = await this.bookRepository.RetrievAllAsync();
         if (books.Any(b => b.Title.Equals(book.Title, StringComparison.OrdinalIgnoreCase)))
             throw new LibraryException(409, "Book already exists");
-        books.Add(book);
+        await this.bookRepository.InsertAsync(book);
         return true;
     }
 

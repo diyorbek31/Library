@@ -1,13 +1,22 @@
 ﻿
 
-using Library.Presentation.Presentation;
+using Library.Presentation.Presentations;
+//using Newtonsoft.Json;
+
 
 namespace Library.Presentation;
 
 public class Program
 {
-    static async void Main(string[] args)
+    static async Task Main(string[] args)
     {
+        /*
+        var path = "D:\\.NET lessons\\3-month\\LibraryManagementSystem\\Library\\Library.Data\\Databases\\Student.json";
+        var str = "Salom dunyo";
+        var result = JsonConvert.SerializeObject(str,Formatting.Indented);
+        File.WriteAllText(path, result);
+        */
+        
         while (true)
         {
             try
@@ -61,5 +70,6 @@ public class Program
                 Console.WriteLine(ex.ToString());
             }
         }
+        
      }
 }

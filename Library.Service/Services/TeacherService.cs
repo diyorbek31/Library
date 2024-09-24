@@ -17,7 +17,7 @@ public class TeacherService : ITecharService
         if (teachers.Any(t => t.Email.Equals(teacher.Email, StringComparison.OrdinalIgnoreCase)))
             throw new LibraryException(409, "User already exists");
 
-        teachers.Add(teacher);
+        await this.teacherRepository.InsertAsync(teacher);
         return true;
     }
 
@@ -41,7 +41,7 @@ public class TeacherService : ITecharService
             LastName = t.LastName,
             PhoneNumber = t.PhoneNumber,
 
-        });
+        }).ToList();
 
         return mappedTeachers;
     }

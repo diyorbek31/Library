@@ -3,7 +3,7 @@ using Library.Service.DTOs.Books;
 
 using Library.Service.Services;
 
-namespace Library.Presentation.Presentation;
+namespace Library.Presentation.Presentations;
 
 public class BookPresentation
 {
