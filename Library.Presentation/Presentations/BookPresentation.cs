@@ -1,6 +1,6 @@
 ﻿using Library.Domain.Entities;
 using Library.Service.DTOs.Books;
-
+using Library.Service.Exceptions;
 using Library.Service.Services;
 
 namespace Library.Presentation.Presentations;
@@ -37,10 +37,17 @@ public class BookPresentation
                         Console.Write("Enter the Book Author -> ");
                         book.Author = Console.ReadLine();
 
-                        Console.Write("Avaibility status -> ");
-                        book.IsAvaiable = bool.Parse(Console.ReadLine());
+                        Console.Write("Avaibility status (1/0) -> ");
+                        var result = (Console.ReadLine());
+                        if (result == "1")
+                            book.IsAvaiable = true;
+                        else if (result == "0")
+                            book.IsAvaiable = false;
+                        else
+                            throw new LibraryException(422, "Please enter the 1 or 0");
 
-                        Console.Write("Enter the Category");
+
+                        Console.Write("Enter the Category -> ");
                         book.Category = Console.ReadLine();
 
                         bookService.AddAsync(book);
@@ -53,8 +60,7 @@ public class BookPresentation
                         BookForUpdateDto bookUpd = new BookForUpdateDto();
                         Console.Write("Enter the Book Title -> ");
                         bookUpd.Title = Console.ReadLine();
-                        Console.Write("Avaibility status -> ");
-                        Console.Write("Enter the Category");
+                        Console.Write("Enter the Category -> ");
                         bookUpd.Category = Console.ReadLine();
 
                         bookService.UpdateAsync(bookId, bookUpd);
@@ -65,7 +71,7 @@ public class BookPresentation
                         int id = int.Parse(Console.ReadLine());
                         var bookInfo = await bookService.GetByIdAsync(id);
 
-                        Console.WriteLine($"Title : {bookInfo.Title}, Avaiable : {bookInfo.IsAvaiable}");
+                        Console.WriteLine($"Title : {bookInfo.Title},\nAvaiable : {bookInfo.IsAvaiable}\n");
 
                         break;
                     case 4:
@@ -73,7 +79,7 @@ public class BookPresentation
                         var booksInfo = await bookService.GetAllAsync();
                         foreach (var bookk in booksInfo)
                         {
-                            Console.WriteLine($"Firstname : {bookk.Title}, Category : {bookk.Category}, Phonenumbers : {bookk.IsAvaiable}");
+                            Console.WriteLine($"Firstname : {bookk.Title},\nCategory : {bookk.Category},\nPhonenumbers : {bookk.IsAvaiable}\n");
                         }
                         break;
 

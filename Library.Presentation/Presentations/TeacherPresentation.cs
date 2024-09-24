@@ -33,10 +33,10 @@ public class TeacherPresentation
                         Console.Write("Enter the User Lastname -> ");
                         teacher.LastName = Console.ReadLine();
 
-                        Console.Write("Enter the User Email");
+                        Console.Write("Enter the User Email -> ");
                         teacher.Email = Console.ReadLine();
 
-                        Console.Write("Enter the User PhoneNumber");
+                        Console.Write("Enter the User PhoneNumber -> ");
                         teacher.PhoneNumber = Console.ReadLine();
                         teacherService.AddAsync(teacher);
                         break;
@@ -51,7 +51,7 @@ public class TeacherPresentation
                         teacherUpd.FirstName = Console.ReadLine();
                         Console.Write("Enter the User Lastname -> ");
                         teacherUpd.LastName = Console.ReadLine();
-                        Console.Write("Enter the User PhoneNumber");
+                        Console.Write("Enter the User PhoneNumber -> ");
                         teacherUpd.PhoneNumber = Console.ReadLine();
                         Console.WriteLine("Enter the User Email -> ");
                         teacherUpd.Email = Console.ReadLine();                        
@@ -63,7 +63,7 @@ public class TeacherPresentation
                         int teacherId = int.Parse(Console.ReadLine());
                         var teacherInfo = await teacherService.GetByIdAsync(teacherId);
 
-                        Console.WriteLine($"Firstname : {teacherInfo.FirstName}, Lastname : {teacherInfo.LastName}, Phonenumbers : {teacherInfo.PhoneNumber}");
+                        Console.WriteLine($"Firstname : {teacherInfo.FirstName}, \nLastname : {teacherInfo.LastName},\nPhonenumbers : {teacherInfo.PhoneNumber}\n");
 
                         break;
                     case 4:
@@ -71,7 +71,7 @@ public class TeacherPresentation
                         var teachersInfo = await teacherService.GetAllAsync();
                         foreach (var tutor in teachersInfo)
                         {
-                            Console.WriteLine($"Firstname : {tutor.FirstName}, Lastname : {tutor.LastName}, Phonenumbers : {tutor.PhoneNumber}");
+                            Console.WriteLine($"Firstname : {tutor.FirstName},\nLastname : {tutor.LastName},\nPhonenumbers : {tutor.PhoneNumber}\n");
 
                         }
                         break;

@@ -1,1 +1,26 @@
-﻿
+[
+  {
+    "Title": "Qo'rqma",
+    "Category": "Fiction",
+    "IsAvaiable": true,
+    "Author": "Javlon Joliyev",
+    "Id": 1,
+    "CreatedAt": "0001-01-01T00:00:00"
+  },
+  {
+    "Title": "Sariq devni minib",
+    "Category": "Children",
+    "IsAvaiable": true,
+    "Author": "Xudoyberdi",
+    "Id": 2,
+    "CreatedAt": "0001-01-01T00:00:00"
+  },
+  {
+    "Title": "Besh bolali yigitcha",
+    "Category": "Badiy",
+    "IsAvaiable": false,
+    "Author": "Xudoyberdi",
+    "Id": 3,
+    "CreatedAt": "0001-01-01T00:00:00"
+  }
+]

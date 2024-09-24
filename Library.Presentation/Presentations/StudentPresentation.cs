@@ -62,7 +62,7 @@ public class StudentPresentation
                         studentUpd.FirstName = Console.ReadLine();
                         Console.Write("Enter the User Lastname -> ");
                         studentUpd.LastName = Console.ReadLine();
-                        Console.Write("Enter the User PhoneNumber");
+                        Console.Write("Enter the User PhoneNumber -> ");
                         studentUpd.PhoneNumber = (Console.ReadLine());
                         Console.WriteLine("Membership is Avaiable ?(1/0) -> ");
                         studentUpd.MembershipStatus = bool.Parse(Console.ReadLine());
@@ -75,7 +75,7 @@ public class StudentPresentation
                         int studentId = int.Parse(Console.ReadLine());
                         var studentInfo = await studentService.GetByIdAsync(studentId);
 
-                        Console.WriteLine($"Firstname : {studentInfo.FirstName}, Lastname : {studentInfo.LastName}, Phonenumbers : {studentInfo.PhoneNumber}, MembershipStatus : {studentInfo.MembershipStatus}");
+                        Console.WriteLine($"Firstname : {studentInfo.FirstName},\nLastname : {studentInfo.LastName},\nPhonenumbers :  {studentInfo.PhoneNumber} \n");
 
                         break;
                     case 4:
@@ -83,7 +83,7 @@ public class StudentPresentation
                         var studentsInfo = await studentService.GetAllAsync();
                         foreach(var pupil in studentsInfo)
                         {
-                            Console.WriteLine($"Firstname : {pupil.FirstName}, Lastname : {pupil.LastName}, Phonenumbers : {pupil.PhoneNumber}, MembershipStatus : {pupil.MembershipStatus}");
+                            Console.WriteLine($"Firstname : {pupil.FirstName},\nLastname : {pupil.LastName},\nPhonenumbers :  {pupil.PhoneNumber} \n");
 
                         }
                         break;
